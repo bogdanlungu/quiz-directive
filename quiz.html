@@ -1,0 +1,32 @@
+<div class="quiz-area" ng-show="inProgress">
+	<div ng-show="!quizOver">
+		<h2 id="question">{{question}}</h2>
+		<br>
+		<ul id="options">
+			<li ng-repeat="option in options">
+				<label>
+					<input type="checkbox" name="answer" value="{{option}}">
+					{{option}}
+				</label>
+			</li>
+		</ul>
+		<br>
+      	<button ng-click="nextQuestion()" class="next-question" ng-show="answerMode" >Next</button>
+	</div>
+
+	<div ng-show="quizOver">
+		<h2>Quiz is over</h2>
+
+		<div id="score">
+		   Your score is: {{score}} out of 10
+	    </div>
+
+		<button ng-click="reset()">Answer again</button>
+
+	</div>
+</div>
+
+<div class="intro" ng-show="!inProgress">
+	<p>Welcome to the Quiz</p>
+	<button id="startQuiz" ng-click="start()">Start the Quiz</button>
+</div>
